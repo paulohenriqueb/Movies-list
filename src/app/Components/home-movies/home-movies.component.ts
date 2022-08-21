@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { pipe } from 'rxjs';
+import { Movies } from 'src/app/Models/movie.models';
 import { MovieService } from 'src/app/service/movie.service';
+import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'app-home-movies',
@@ -7,7 +10,8 @@ import { MovieService } from 'src/app/service/movie.service';
   styleUrls: ['./home-movies.component.css']
 })
 export class HomeMoviesComponent implements OnInit {
-  movieList?: any[];
+  movieList?: Movies[];
+  posterPath: string = 'https://image.tmdb.org/t/p/w370_and_h556_bestv2';
   constructor(private movies: MovieService) { }
 
   ngOnInit(): void {
@@ -15,9 +19,14 @@ export class HomeMoviesComponent implements OnInit {
   }
 
   homeMovie(){
-    this.movies.getAllMovies().subscribe((resp: any)=>{
-      this.movieList = resp.results
-      console.log(this.movieList);
+    this.movies.getAllMovies()
+    .pipe( map((props:any) =>{
+      return props.results;
+    } ))
+    .subscribe((resp)=>{
+      this.movieList = resp;
+      // this.movieList = resp.results
+      // console.log(this.movieList);
     })
   }
 

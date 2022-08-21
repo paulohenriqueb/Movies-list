@@ -1,5 +1,8 @@
-<div *ngFor="let m of movieList">
-    <p>
-        {{ m.title}}
-    </p>
-</div>
+<section class="container" fxLayout="row wrap" fxLayoutAlign="start" fxLayoutGap="20px">
+    <mat-card class="movie-card" *ngFor="let movie of movieList" fxFlex="15">
+        <img mat-card-image src="{{ posterPath + movie.poster_path }}" alt="{{ movie.title}}">
+        <mat-card-content>
+            <mat-card-title>{{ movie.title }}</mat-card-title>
+        </mat-card-content>
+    </mat-card>
+</section>
