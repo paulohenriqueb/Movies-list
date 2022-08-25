@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators'
 export class HomeMoviesComponent implements OnInit {
   movieList?: Movies[];
   posterPath: string = 'https://image.tmdb.org/t/p/w370_and_h556_bestv2';
+  
   constructor(private movies: MovieService) { }
 
   ngOnInit(): void {

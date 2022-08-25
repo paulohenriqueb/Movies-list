@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import { Movies } from '../Models/movie.models';
 @Injectable({
@@ -16,6 +16,13 @@ export class MovieService {
 
   getAllMovies():Observable<Movies>{
     return this.http.get<Movies>(`${this.baseUrl}discover/movie?api_key=${this.api_key}&language=${this.lang}`);
+  }
+
+  searchMovies(param:string):Observable<Movies[]>{
+    if(param.length==0){
+      return of([]);
+    }
+    return this.http.get<Movies[]>(`${this.baseUrl}search/movie?api_key=${this.api_key}&language=${this.lang}&query=${param}`);
   }
 
 }

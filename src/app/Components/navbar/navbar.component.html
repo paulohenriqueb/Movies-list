@@ -1,3 +1,15 @@
-<mat-toolbar>
-    <span>Movies</span>
-</mat-toolbar>
+<header>
+    <mat-toolbar>
+        <section class="container main-nav">
+            <span>Movies</span>
+            <span class="example-spacer"></span>
+            <mat-form-field appearance="legacy">
+                <mat-label>Pesquise pelo seu filme</mat-label>
+                <input type="text" matInput #searchMovie placeholder="Pesquise pelo seu filme..." autocomplete="off" [(ngModel)]="movieSearch">
+            </mat-form-field>
+        </section>
+    </mat-toolbar>
+    <div *ngFor="let movie of moviesList">
+        {{movie.title}}
+    </div>
+</header>
