@@ -10,12 +10,14 @@ import { MaterialModule  } from './material.module';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { ResultMovieSearchComponent } from './Components/navbar/result-movie-search/result-movie-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeMoviesComponent,
-    NavbarComponent
+    NavbarComponent,
+    ResultMovieSearchComponent,
   ],
   imports: [
     BrowserModule,

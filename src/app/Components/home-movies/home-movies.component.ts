@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { pipe } from 'rxjs';
 import { Movies } from 'src/app/Models/movie.models';
 import { MovieService } from 'src/app/service/movie.service';
@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators'
   styleUrls: ['./home-movies.component.css']
 })
 export class HomeMoviesComponent implements OnInit {
+  @Input() movieSearchList?: string[];
   movieList?: Movies[];
   posterPath: string = 'https://image.tmdb.org/t/p/w370_and_h556_bestv2';
   

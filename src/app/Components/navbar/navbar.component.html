@@ -9,7 +9,7 @@
             </mat-form-field>
         </section>
     </mat-toolbar>
-    <div *ngFor="let movie of moviesList">
-        {{movie.title}}
-    </div>
 </header>
+<app-result-movie-search [movieSearchResult]="moviesListSearch" [titleSearch]="searchMovie.value">
+
+</app-result-movie-search>
