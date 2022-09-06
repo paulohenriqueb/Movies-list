@@ -26,6 +26,7 @@ const appRoutes: Routes =[
     HomeMoviesComponent,
     NavbarComponent,
     ResultMovieSearchComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,7 @@ const appRoutes: Routes =[
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent]
