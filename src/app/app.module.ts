@@ -11,7 +11,15 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { ResultMovieSearchComponent } from './Components/navbar/result-movie-search/result-movie-search.component';
+import { MovieDetailsComponent } from './Components/movie-details/movie-details.component';
+import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 
+const appRoutes: Routes =[
+  {path:'', component: HomeMoviesComponent},
+  {path: 'movie/:index', component: MovieDetailsComponent},
+  {path: '**', component: PageNotFoundComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +33,8 @@ import { ResultMovieSearchComponent } from './Components/navbar/result-movie-sea
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
