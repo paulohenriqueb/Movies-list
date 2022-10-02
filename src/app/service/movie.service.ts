@@ -26,6 +26,7 @@ export class MovieService {
   }
 
   getOneMovie(id:number):Observable<Movies[]>{
+    console.log(`${this.baseUrl}movie/${id}?${this.api_key}&language=${this.lang}`)
     return this.http.get<Movies[]>(`${this.baseUrl}movie/${id}?${this.api_key}&language=${this.lang}`);
   }
 

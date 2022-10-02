@@ -19,7 +19,7 @@ export class MovieDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     let i: number = +this.route.snapshot.paramMap.get('index')!;
-    //console.dir(this.movieService.getOneMovie(i));
+    console.dir(this.movieService.getOneMovie(i));
     this.movies$ = this.movieService.getOneMovie(i);
   }
 
